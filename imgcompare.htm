@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang=en><head>
+
+<style>
+
+#Img2 {
+  position:relative;
+  width:895px;
+  height:504px;
+  background-image:url(Sicki2.jpg);
+}
+
+#Img1 {
+  position:absolute;
+  width:895px;
+  height:504px;
+  background-image:url(Sicki1.jpg);
+  display:block;
+  margin:0;
+  padding:0;
+  top:0;
+  left:0;
+  border-right:1px solid #f00;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="Img2">
+  <div id="Img1"></div>
+</div>
+
+<script>
+
+(function(){
+
+  function e(e){
+    return Math.max(0,Math.min(b.offsetWidth,e-b.offsetLeft))
+  }
+
+  var a=document.querySelector("#Img1");
+  var b=document.querySelector("#Img2");
+
+  a.style.width=e(b.offsetLeft+b.offsetWidth/2).toString()+"px";
+
+  b.addEventListener("mousemove",function(b){
+    a.style.width=e(b.clientX).toString()+"px"
+  });
+
+  b.addEventListener("touchmove",function(b){
+    b.preventDefault();
+    a.style.width=e(b.touches[0].pageX).toString()+"px"
+  });
+
+}).call();
+
+</script>
+
+</body>
+</html>
